@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Page en ejs</title>
+</head>
+
+<body>
+	<!-- <p>Bonjour <%=nom %></p> -->
+	<p>Bonjour <%= nom %></p>
+	<p><%= personTitle %></p><!-- mettre le signe ' = ' après ' % ' permet d'insérer une variable -->
+	<ul>
+		<!-- On passe une variable de type person pour éviter d'écrire à plusieurs reprise la même instruction pour récupérer toutes les personnes -->
+		<% persons.forEach(function (person) { %>
+			<li>
+				<strong><%= person.nom %></strong>
+				<strong><%= person.prenom %></strong>
+
+			</li>
+		<% }); %>
+	</ul>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Section commentaires</title>
+	<style>
+		#respond {
+			margin-top: 40px;
+		}
+		#respond input[type='text'],
+		#respond input[type='email'], 
+		#respond textarea {
+			margin-bottom: 10px;
+			display: block;
+			width: 100%;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				-o-border-radius: 5px;
+				-ms-border-radius: 5px;
+				-khtml-border-radius: 5px;
+			border-radius: 5px;
+		line-height: 1.4em;
+	  }
+	</style>
+</head>
+
+<body>
+	<h3>Laisser un commentaire</h3>
+	<div id="respond">
+		<form id="commentform" action="/" method="POST">
+			<label for="auteur">Votre nom</label>
+			<input type="text" name="auteur" id="auteur" value="" required />
+			<label for="email">Votre email</label>
+			<input type="email" name="email" id="email" value="" required />
+			<label for="title">Titre</label>
+			<input type="text" name="title" id="title" value="" required />
+			<label for="comment" class="required">Votre message</label>
+			<textarea name="comment" id="comment" rows="10" required="required"></textarea>
+			<input name="submit" type="submit" value="Envoyer" />
+		</form>
+	</div>
+
+	<div id="respond">
+		<ul>
+			<% comments.forEach((comment)=> { %>
+				<li>
+					<strong>
+						<%= comment.title %>
+					</strong>
+					<strong>
+						<%= comment.comment %>
+					</strong>
+					<%= comment.date %>
+				</li>
+				<% }); %>
+		</ul>
+	</div>
+</body>
+
+</html>
